@@ -1,7 +1,7 @@
 name: HelloWorld
 on: push
 jobs:
-  check-bats-version:
+  hello-world-jobs:
     runs-on: ubuntu-latest # VM ubuntu pour faire tourner ubuntu
     steps:
       - uses: actions/checkout@v4
