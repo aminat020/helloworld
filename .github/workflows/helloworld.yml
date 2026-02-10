@@ -1,9 +1,16 @@
 name: HelloWorld
 on: push
 jobs:
+env:
+  variable: "une variable d'environnement accessible au même niveau que les jobs et les steps càd accessible à tous les jobs et steps du workflow. Elle peut être utilisée pour stocker des valeurs qui doivent être partagées entre les différentes étapes du workflow, comme des clés d'API, des chemins d'accès ou d'autres informations sensibles. En définissant une variable d'environnement au niveau du workflow, vous pouvez éviter de dupliquer ces valeurs dans chaque job ou step, ce qui rend votre workflow plus facile à maintenir et à sécuriser."
+  github_token: ${{ secrets.GITHUB_TOKEN }}
+  github_event_name: ${{ github.event_name }}
+#nom modifiable
   hello-world-jobs:
     runs-on: ubuntu-latest # VM ubuntu pour faire tourner ubuntu
     steps:
+      - name: Checkout analyse le code existant et build à partir de la le code
       - uses: actions/checkout@v4
+      - name : display hello world
       - run: echo "hello world"
       # - run: bats -v

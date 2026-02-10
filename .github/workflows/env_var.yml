@@ -1,0 +1,29 @@
+name: Amnesia
+# event trigger qui implique de déclencher le workflow manuellement
+on: workflow_dispatch
+env: 
+  # variable en majuscule ce n'est pas obligatoire mais conventionel
+  NAME: Ami
+  OS_UBUNTU: ubuntu-latest
+
+jobs:
+# id du job en lu donnant un  nom
+  say_hello:
+  # machine virtuel pour faire tourner le job say hello, MACOS ubuntu ou
+    runs-on: $OS_UBUNTU
+    env:
+      ENTREPRISE: open
+    steps:
+    # 
+      - name: "Salutation"
+        run: echo "Salut $NAME § ! Tu travaille chez $ENTREPRISE? Alors bon $DAY à toi"
+        env:
+          DAY: "lundi"
+      - name: "Mardi?"
+        run: echo "Quel jour sommes nous ? $DAY ?"
+  say_goodbye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Dit aurevoir"
+        run: echo "Au revoir $NAME ! Tu travailles pour quelle entreprise"
+      
