@@ -7,14 +7,14 @@ env:
   OS_UBUNTU: ubuntu-latest
 
 jobs:
-# id du job en lu donnant un  nom
+# id du job en lui donnant un  nom
   say_hello:
   # machine virtuel pour faire tourner le job say hello, MACOS ubuntu ou
     runs-on: $OS_UBUNTU
     env:
       ENTREPRISE: open
     steps:
-    # 
+    # toute variable déclaré dans un job est dispo dans ce job que'elle soit avant ou après
       - name: "Salutation"
         run: echo "Salut $NAME § ! Tu travaille chez $ENTREPRISE? Alors bon $DAY à toi"
         env:
